@@ -34,7 +34,7 @@ This project aims to build and compare multiple machine learning models to accur
 
 - Random Forest Regressor
 
-- Gradient Boosting Regressor
+- KNeighbors Regressor
 
 - XGBoost Regressor
 
@@ -50,8 +50,6 @@ To ensure fair comparison and performance benchmarking, the following metrics we
 
 - Mean Absolute Error (MAE)
 
-- Mean Squared Error (MSE)
-
 - Root Mean Squared Error (RMSE)
 
 - R² Score (Coefficient of Determination)
@@ -62,7 +60,32 @@ These metrics helped assess not just accuracy but also the robustness and error 
 
 ## Results & Insights:
 
-Among all the models tested, ensemble methods like Random Forest and XGBoost showed superior performance, capturing non-linear relationships and interactions between variables effectively. Linear models, while interpretable, underperformed on accuracy due to the complexity of the dataset.
+  | ML Model                | R² Score   | MAE            | RMSE           |
+  | ----------------------- | ---------- | -------------- | -------------- |
+  | KNeighbors Regressor    | 0.5426     | 789,178.10     | 1,035,400.80   |
+  | **Linear Regression**   | **0.6505** | 689,643.54     | **905,095.30** |
+  | Random Forest Regressor | 0.6415     | 672,877.84     | 916,710.12     |
+  | Decision Tree           | 0.1083     | 1,047,370.18   | 1,445,717.06   |
+  | XGBoost Regressor       | 0.6503     | **649,028.78** | 905,366.44     |
+  | SVR Regressor           | -0.0014    | 1,200,219.37   | 1,532,105.77   |
+
+
+- **Best R² Score:** Linear Regression (0.6505) – explains the most variance in the data.
+
+- **Lowest MAE:** XGBoost Regressor (649,028.78) – most accurate on average.
+
+- **Lowest RMSE:** Linear Regression (905,095.30) – smallest average squared error.
+##
+
+***Linear Regression*** is the best overall model based on:
+
+- Highest R² Score
+
+- Lowest RMSE
+- 2nd lowest MAE (just behind XGBoost)
+
+If your priority is overall balanced accuracy and consistency, go with Linear Regression.
+However, if minimizing average absolute error (MAE) is your top concern, XGBoost is very close in performance and slightly better on that metric.
 
 ##
 
